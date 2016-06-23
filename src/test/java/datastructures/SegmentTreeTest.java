@@ -23,6 +23,13 @@ public class SegmentTreeTest {
     }
 
     @Test
+    public void shouldReturnSumOfRangeExactlyMatchingANodeInOddArraySize() throws Exception {
+        SegmentTree segmentTree = new SegmentTree(Arrays.asList(1, 3, 2, 9, 10, 12, 11));
+        assertEquals((Integer) 15, segmentTree.getRangeSum(0, 3));
+        assertEquals((Integer) 33, segmentTree.getRangeSum(4, 6));
+    }
+
+    @Test
     public void shouldReturnSumOfRangePartiallyMatchingANode() throws Exception {
         SegmentTree segmentTree = new SegmentTree(Arrays.asList(1, 3, 2, 9, 10, 12));
         assertEquals((Integer) 15, segmentTree.getRangeSum(0, 3));

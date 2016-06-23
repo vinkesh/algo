@@ -65,17 +65,13 @@ public class SegmentTree<T> {
             return this.sum;
         }
 
-        public boolean exactInRange(int i, int j) {
-            return this.min == i && this.max == j;
-        }
-
         public Integer getRangeSum(int i, int j) {
             if(j < getMin() || i > getMax()) {
                 return 0;
             }
-            if(this.exactInRange(i, j)) {
+            if(this.min == i && this.max == j) {
                 return this.getSum();
-            }  else {
+            } else {
                 return left.getRangeSum(i, Math.min(j, left.getMax())) + right.getRangeSum(Math.max(i, right.getMin()), j);
             }
         }
